@@ -81,8 +81,8 @@ trailingConstraint.isActive = true
 * bool값을 리턴하는 active 함수 변경
     * active -> isActive
 * Swift API Design Guidelines
-    *Strive for Fluent Usage
-        *Prefer method and function names that make use sites form grammatical English phrases.
+    * Strive for Fluent Usage
+        * Prefer method and function names that make use sites form grammatical English phrases.
 
 
 > 118 페이지
