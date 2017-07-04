@@ -17,3 +17,4 @@ var greeting = " Hello, playground"
 * Swift API Design Guidelines
 	* Naming
 		* Promote Clear Usage
+
