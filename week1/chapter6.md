@@ -16,6 +16,9 @@ segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
 * UIKit의 UIColor 클래스의 메소드 삭제, 프로퍼티 추가
     * greenColor() -> green
         * colorWithAlphaComponent(0.5) -> withAlphaComponent(0.5)
+* Swift API Design Guidelines
+    * Naming
+        * Promote Clear Usage
 
 
 > 115 페이지
@@ -35,7 +38,9 @@ let trailingConstraint = segmentedContrl.trailingAnchor.constraint(equalTo: view
 ```
 
 ### 근거
-*
+* Swift API Design Guidelines
+    * Strive for Fluent Usage
+        * Prefer method and function names that make use sites form grammatical English phrases.
 
 
 > 115 페이지
@@ -51,7 +56,9 @@ func constraint(equalTo anchor: NSLayoytanchor<AnchorType>, constant c: CGFloat)
 ```
 
 ### 근거
-*
+* Swift API Design Guidelines
+    * Strive for Fluent Usage
+        * Prefer method and function names that make use sites form grammatical English phrases.
 
 
 > 116 페이지
@@ -71,7 +78,8 @@ trailingConstraint.isActive = true
 ```
 
 ### 근거
-*
+* bool값을 리턴하는 active 함수 변경
+    * active -> isActive
 
 
 > 118 페이지
@@ -87,7 +95,11 @@ let topConstraint = segmentedContrl.topAnchor.constraint(equalTo: topLayoutGuide
 ```
 
 ### 근거
-*
+* Swift API Design Guidelines
+    * Promote Clear Usage
+        * Omit needless words.
+    * Strive for Fluent Usage
+        * Prefer method and function names that make use sites form grammatical English phrases.
 
 
 > 119 페이지
@@ -105,7 +117,11 @@ let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: mar
 ```
 
 ### 근거
-*
+* Swift API Design Guidelines
+    * Promote Clear Usage
+        * Omit needless words.
+    * Strive for Fluent Usage
+        * Prefer method and function names that make use sites form grammatical English phrases.
 
 
 > 120 페이지
@@ -147,7 +163,8 @@ NSLayoutAttribute.leadingMargin
 ```
 
 ### 근거
-*
+* Coding convention of enumeration has been changed in Swift3
+    * UpperCamelCase -> LowerCamelCase
 
 
 > 120 페이지
@@ -167,7 +184,8 @@ attribute: .height
 ```
 
 ### 근거
-*
+* Coding convention of enumeration has been changed in Swift3
+    * UpperCamelCase -> LowerCamelCase
 
 
 > 122 페이지
@@ -187,7 +205,11 @@ segmentedControl.addTarget(self,
 ```
 
 ### 근거
-*
+* Coding convention of enumeration has been changed in Swift3
+    * UpperCamelCase -> LowerCamelCase
+* Compile-time checked selectors
+    * Swift 2.2 deprecates using strings for selectors and instead introduces new syntax: #selector
+        * check your code at compile time to make sure the method you want to call actually exists
 
 
 > 122 페이지
@@ -224,4 +246,6 @@ func mapTypeChanged(_ segControl: UISegmentedControl) {
 }
 ```
 
-
+### 근거
+* Coding convention of enumeration has been changed in Swift3
+    * UpperCamelCase -> LowerCamelCase
