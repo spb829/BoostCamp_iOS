@@ -39,4 +39,50 @@ var if let r1 = reading1, let r2 = reading2, let r3 = reading3 {
 ```
 
 ### 근거
-* Swift3 syntax change
+* Syntax of multiple 'if let' statement has been changed in Swift3
+
+>> 91 페이지
+
+### 수정 전
+```swift
+for var i = 0; i < countingUp.count; ++i {
+	let string = countingUp[i]
+}
+```
+
+### 수정 후
+```swift
+for i in 0 ..< countingUp.count {
+    let countingValue = countingUp[i]
+}
+```
+
+### 근거
+* C-style for statement has been removed in Swift 3
+* Swift API Design Guidelines
+	* Naming
+		* Promote Clear Usage
+
+>> 94 페이지
+
+### 수정 전
+```swift
+enum PieType {
+	case Apple
+	case Cherry
+	case Pecan
+}
+```
+
+### 수정 후
+```swift
+enum PieType {
+	case apple
+	case cherry
+	case pecan
+}
+```
+
+### 근거
+* Naming convention of Enumeration has been changed in Swift3
+	* UpperCamelCase -> LowerCamelCase
