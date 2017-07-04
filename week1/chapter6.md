@@ -18,3 +18,5 @@ segmentedControl.backgroundColor
 * UIKit의 UIColor 클래스의 메소드 삭제, 프로퍼티 추가
     * greenColor() -> green
         * colorWithAlphaComponent(0.5) -> withAlphaComponent(0.5)
+
+>
