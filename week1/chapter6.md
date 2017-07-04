@@ -16,6 +16,12 @@ var str = " Hello, playground"
 * Swift API
         * Naming
                 * Promote
+
+### 근거
+* C-style for statement has been removed in Swift 3
+    * Swift API Design Guidelines
+        * Naming
+            * Promote Clear Usage
                 
                 
 
