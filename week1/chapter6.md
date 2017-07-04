@@ -238,11 +238,11 @@ func mapTypeChnaged(segControl: UISegmentedControl) {
 func mapTypeChanged(_ segControl: UISegmentedControl) {
     switch segControl.selectedSegmentIndex {
     case 0:
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
     case 1:
-        mapView.mapType = .Hybrid
+        mapView.mapType = .hybrid
     case 2:
-        mapView.mapType = .Satellite
+        mapView.mapType = .satellite
     default:
         break
     }
@@ -252,3 +252,5 @@ func mapTypeChanged(_ segControl: UISegmentedControl) {
 ### 근거
 * Coding convention of enumeration has been changed in Swift3
     * UpperCamelCase -> LowerCamelCase
+* 전달인자 레이블 간소화
+    * segControl이 외부에서 보이지 않도록 변경
