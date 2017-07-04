@@ -18,6 +18,7 @@ var greeting = " Hello, playground"
 	* Naming
 		* Promote Clear Usage
 
+
 > 88 페이지
 
 ### 수정 전
@@ -41,7 +42,8 @@ var if let r1 = reading1, let r2 = reading2, let r3 = reading3 {
 ### 근거
 * Syntax of multiple 'if let' statement has been changed in Swift3
 
->> 91 페이지
+
+> 91 페이지
 
 ### 수정 전
 ```swift
@@ -63,7 +65,8 @@ for i in 0 ..< countingUp.count {
 	* Naming
 		* Promote Clear Usage
 
->> 94 페이지
+
+> 94 페이지
 
 ### 수정 전
 ```swift
