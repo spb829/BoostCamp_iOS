@@ -35,3 +35,6 @@ var if let r1 = reading1, let r2 = reading2, let r3 = reading3 {
 } else {
 	let errorString = "Instrument reported a reading that was nil."
 }
+
+### 근거
+* Swift3 syntax change
