@@ -123,7 +123,8 @@ if let text = textField.text where !text.isEmpty {
 }
 else {
     celsiusLabel.text = "???"
-}```
+}
+```
 
 ### 수정 후
 ```swift
