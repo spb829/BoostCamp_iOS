@@ -17,6 +17,7 @@ segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
     * greenColor() -> green
         * colorWithAlphaComponent(0.5) -> withAlphaComponent(0.5)
 
+<<<<<<< HEAD
 
 > 115 페이지
 
@@ -224,3 +225,6 @@ func mapTypeChanged(_ segControl: UISegmentedControl) {
 }
 ```
 
+=======
+>
+>>>>>>> 5ec28efb1a5858647cb79fcd6434afeed2c274ee
