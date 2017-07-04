@@ -70,11 +70,11 @@ leadingConstraint.active = true
 trailingConstraint.active = true
 ```
 
-### 수정 후 
+### 수정 후
 ```swift
 topConstraint.isActive = true
 leadingConstraint.isActive = true
-trailingConstraint.isActive = true 
+trailingConstraint.isActive = true
 ```
 
 ### 근거
