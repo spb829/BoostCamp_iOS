@@ -238,11 +238,11 @@ func mapTypeChnaged(segControl: UISegmentedControl) {
 func mapTypeChanged(_ segControl: UISegmentedControl) {
     switch segControl.selectedSegmentIndex {
     case 0:
-        mapView.mapType = .Standard
+        mapView.mapType = .standard
     case 1:
-        mapView.mapType = .Hybrid
+        mapView.mapType = .hybrid
     case 2:
-        mapView.mapType = .Satellite
+        mapView.mapType = .satellite
     default:
         break
     }
