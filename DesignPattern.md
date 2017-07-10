@@ -50,23 +50,23 @@
 ## MVP 란?
 
 ### **핵심 패턴**
-	* 애플의 MVC에서는 View와 Controller가 ViewController에 섞여 있어 구분이 애매하지만 MVP에서 Presenter는 ViewController와 분리되어 ViewController는 View의 역할을 하게된다.
+* 애플의 MVC에서는 View와 Controller가 ViewController에 섞여 있어 구분이 애매하지만 MVP에서 Presenter는 ViewController와 분리되어 ViewController는 View의 역할을 하게된다.
 
 
 ### **주 목적**
-	* 프로그램의 유지보수를 용이하게 하고 단위테스트를 가능하게 한다.
+* 프로그램의 유지보수를 용이하게 하고 단위테스트를 가능하게 한다.
 
 
 ### **구성 요소**
-	* **Model** - MVC에서 마찬가지로 데이터와 데이터와 관련된 로직들을 담당한다.
-	* **View** - 사용자에게 보여지는 View 계층을 담당한다. 모델과 분리되어 Presenter에 사용자의 액션 등을 전달한다.
-	* **Presenter** - 뷰로 부터 전달받은 사용자의 액션을 처리하고 모델을 업데이트 한다.
+* **Model** - MVC에서 마찬가지로 데이터와 데이터와 관련된 로직들을 담당한다.
+* **View** - 사용자에게 보여지는 View 계층을 담당한다. 모델과 분리되어 Presenter에 사용자의 액션 등을 전달한다.
+* **Presenter** - 뷰로 부터 전달받은 사용자의 액션을 처리하고 모델을 업데이트 한다.
 
 ### 장점
-	* MVC 패턴에서 View와 Controller가 ViewController 안에서 섞여 있기 때문에 ViewController의 코드 양이 많아지게 되는데 MVP에서는 Presenter 클래스를 따로 만들어 ViewController와 Presenter에 코드가 분리되는 장점이 있다.
+* MVC 패턴에서 View와 Controller가 ViewController 안에서 섞여 있기 때문에 ViewController의 코드 양이 많아지게 되는데 MVP에서는 Presenter 클래스를 따로 만들어 ViewController와 Presenter에 코드가 분리되는 장점이 있다.
 
 ### 단점
-	* View와 Controller를 ViewController에 모아놓은 MVC 패턴에 비해 Presenter를 따로 생성하는 MVP는 작은 규모의 프로그램에서 코드의 양이 MVC에 비해 많아질 수 있다.
+* View와 Controller를 ViewController에 모아놓은 MVC 패턴에 비해 Presenter를 따로 생성하는 MVP는 작은 규모의 프로그램에서 코드의 양이 MVC에 비해 많아질 수 있다.
 
 
 # MVVM이란?
