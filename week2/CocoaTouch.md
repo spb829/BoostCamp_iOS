@@ -6,15 +6,13 @@
 
 * #### Framework
   * Cocoa Touch Framework의 디자인패턴에 대해 논하기에 앞서 프레임워크에 대한 개념을 알아보았다.
-  
-        "소프트웨어의 구체적인 부분에 해당하는 설계와 구현을 재사용이 가능하게끔
-        일련의 협업화된 형태로 클래스들을 제공하는 것" - 랄프 존슨
+
+        "소프트웨어의 구체적인 부분에 해당하는 설계와 구현을 재사용이 가능하게끔 일련의 협업화된 형태로 클래스들을 제공하는 것" - 랄프 존슨
   * 덧붙이자면, 프레임워크란 설계의 기반이 되는 부분을 기술한  확장 가능한 기반 코드와
 사용자가 이 코드를 자기 입맛대로 확장하는 데 필요한 라이브러리 이 두 가지 요소가 통합되어 제공되는 형태를 말한다.
   * 사용자는 이를 이용해 일정 수준 이상의 품질을 보장받는 코드를, 비교적 빠른 시간에 완성 및 유지 보수할 수 있는 환경을 제공해주는 솔루션으로
 
-        "기본적인 설계나 필요한 라이브러리는 알아서 제공해 줄꺼니깐
-        넌 그냥 니가 진짜로 하고 싶은 기능 구현에만 전념해!"
+        "기본적인 설계나 필요한 라이브러리는 알아서 제공해 줄꺼니깐 넌 그냥 니가 진짜로 하고 싶은 기능 구현에만 전념해!"
   라는 취지에서 만들어진 물건이란 것이다.
 * #### Cocoa Touch Framework
   * Cocoa Framework
@@ -27,7 +25,8 @@
 
 
 ## Design Pattern in Cocoa Framework
-### MVC Pattern
+
+### MVC-Pattern-like
 
   * OSX와 iOS 비교 (본문 중)
     ```
@@ -45,7 +44,25 @@
      같이 객체로 구분하여 서로의 역활에 맡게 동작하도록 하라는 것이다.
     ```
   * MVC Pattern에 대한 내용은 이미 다음에 정리하였다. [DesignPattern.md](./DesignPattern.md)
-  * 하지만 Cocoa Framework는 전통적인 MVC Pattern과는 다르다.
+  * 하지만 Cocoa Framework는 전통적인 MVC Pattern과는 다르다. 구조적, 재사용성 등의 문제로 Apple은 MVC를 조금 개선하여 사용하게 되었다.
+
+### Apple's MVC
+  * **기대한 Apple's MVC Pattern**
+     ![expected_MVC](img/expected_Cocoa_MVC.png "expected_MVC")
+           원래 Controller는 Model과 View를 연결시켜주는 역할을 하므로 서로에 대해 알필요가 없다.
+           그중에 가장 재사용 불가능한 것이 Controller이며, 우리도 그걸 알고있다. 따라서 우리는 모든
+           특이한 로직을 Model이 아닌 Controller에 넣어야한다.
+  * **실제 Apple's MVC Pattern**
+     ![real_MVC](img/realistic_Cocoa_MVC.png "real_MVC")
+
+            Cocoa MVC는 View Controller를 덩어리를 작성하도록 만들어버린다. 그 이유는 View들의
+            라이프 사이클 안에서 뒤엉키는데 그것들을 분리해내기가 어렵기 때문이라고 말한다. 너가 Model에
+            *비지니스 로직이나 데이터 변환같은 것을 없애는 능력을 가졌을 지라도 대부분의 View에서
+            반응하면 액션을 Controller로 보내게 될것이다. 뷰 컨트롤러는 결국 모든 것의 델리게이트(delegate)나
+            데이터소스(data source)가 될테고, 종종 네트워크 요청과같은 처리도 하고 있을지 모른다.
+  * 결국에 [이러한](img/Cocoa_Touch.jpg) 결과를 낳게 된다.
+
+### Conclusion
 
 ## 참고자료
 * [iOS와 디자인 패턴](http://10apps.tistory.com/153)
