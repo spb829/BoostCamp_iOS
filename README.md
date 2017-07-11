@@ -12,7 +12,7 @@
 >- Cocoa Touch Framework는 어떤 디자인패턴에 가깝게 구현이 되었을지에 대해 토론하고 주된 논의 내용과 결론을 요약해주세요. 제출형식은 mark down 혹은 pdf 포멧의 문서로 합니다.
 [분량 : A4용지 5장 이내]
 
-[과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2)
+* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2)
 
 ### 팀 과제 공통
 
@@ -24,7 +24,7 @@
 >   >- 컨텐츠의 양식과 문제형식은 제한없음.
 >   >- 단, 학습자가 1시간 내로 학습을 완료할 수 있는 분량으로 제작.
 
-[과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2)(진행중)
+* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2)(진행중)
 
 ### 개인 과제
  * [김다혜](https://github.com/iluvdadong/boostcamp_iOS_dadong/tree/master/week2)
