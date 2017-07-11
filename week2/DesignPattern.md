@@ -33,7 +33,7 @@
 
 ### **구성 요소**
   * **Models** - 데이터나 데이터 접근 레이어(Person 클래스나 PersonDataProvider 클래스와 같이 데이터를 다루고있는) 소유를 책임지는 부분
-  * **Views** - 레이어에 표현되어 있는 것을 책임지는 부분(GUI), iOS 환경에서는 'UI'가 접두로 붙는다(역자주: UILabel, UIView 등등..).
+  * **Views** - 레이어에 표현되어 있는 것을 책임지는 부분(GUI), iOS 환경에서는 'UI'가 접두로 붙는다.
   * **Controller** - Model과 View를 붙여준다. 보통 유저가 View에서 어떤 액션을 취할때 Model을 변경하거나 Model이 변경되었을 때, View를 갱신하는 책임을 가지는 부분
 
 
