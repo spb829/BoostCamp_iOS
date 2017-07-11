@@ -63,6 +63,14 @@
   * 결국에 [이러한](img/Cocoa_Touch.jpg) 결과를 낳게 된다.
 
 ### Conclusion
+* #### MVC맞네
+  * ㅇ
+* #### 아닌디
+  * ㅇ?
+* #### 그럼뭐냐
+  * ㅁㄹ
+* #### MVP?
+  * MVP랑도 비슷한 거냐?
 
 ## 참고자료
 * [iOS와 디자인 패턴](http://10apps.tistory.com/153)
