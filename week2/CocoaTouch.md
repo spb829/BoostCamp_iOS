@@ -56,7 +56,7 @@
      ![real_MVC](img/realistic_Cocoa_MVC.png "real_MVC")
 
             Cocoa MVC는 View Controller를 덩어리를 작성하도록 만들어버린다. 그 이유는 View들의
-            라이프 사이클 안에서 뒤엉키는데 그것들을 분리해내기가 어렵기 때문이라고 말한다. 너가 Model에
+            라이프 사이클 안에서 뒤엉키는데 그것들을 분리해내기가 어렵기 때문이라고 말한다. 당신이 Model에
             *비지니스 로직이나 데이터 변환같은 것을 없애는 능력을 가졌을 지라도 대부분의 View에서
             반응하면 액션을 Controller로 보내게 될것이다. 뷰 컨트롤러는 결국 모든 것의 델리게이트(delegate)나
             데이터소스(data source)가 될테고, 종종 네트워크 요청과같은 처리도 하고 있을지 모른다.
