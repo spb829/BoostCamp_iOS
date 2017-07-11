@@ -63,14 +63,23 @@
   * 결국에 [이러한](img/Cocoa_Touch.jpg) 결과를 낳게 된다.
 
 ## Conclusion
-* #### MVC맞네
-  * ㅇ
-* #### 아닌디
-  * ㅇ?
-* #### 그럼뭐냐
-  * ㅁㄹ
-* #### MVP?
-  * MVP랑도 비슷한 거냐?
+* #### 개선된 MVC Pattern
+  * Apple의 문서를 참고하였을때 Apple이 지향하는 MVC Pattern은 **기존의 MVC모델에서 개선된 형태의 모델**이다.
+  * 전통적인 MVC를 개선한 Apple이 기대했던 MVC는 본문에서 보는바와 같이 뷰와 모델이 완전히 분리되어 있으며, 컨트롤러가 중간에서 데이터와 액션을 중재한다.
+  * 이를 볼때 Apple이 기대한 MVC Pattern은 controller가 독립적으로 데이터를 주고 받는 것을 볼 때 **MVP Pattern** 에 조금더 가깝다고 생각한다.
+  * 그러나 실제 Apple의 MVC 패턴은 본문에서 보는것과 같이 뷰와 컨트롤러가 서로 붙어있고, 거의 대부분의 처리를 하는 것을 봤을 때 기존에 존재하는 MVC, MVP, MVVM와는 거리가 있다고 생각한다.
+  * 뷰가 모델로부터 직접 데이터를 얻어오는 것이 아니라, 컨트롤러를 통해 간접적으로 데이터를 얻어오는 방식으로 동작한다.
+
+        이와 같은 MVC패턴을 [“Passive View”](https://medium.com/nspoons/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-architecture-%ED%8C%A8%ED%84%B4-part-1-%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-model-view-controller-881c6fda24d9)라고 부른다.
+
+        이를통해 모델과  뷰의 재사용성을 향상시킬 수 있다. 대신 컨트롤러가 중간에서 모델과 뷰의 상태를 동기화 시키는 역할을 담당한다.
+
+* #### Discussion between Patterns
+  * 여기에 완벽한 해답은 없고 아키텍처를 선택하는게 당신의 특별한 상황에서 문제의 비중을 등가교환하게 된다는걸 알게되었음을 의심하지 않는다.
+  * 그러므로 한 앱에 다른 아키텍처를 섞어 사용하는것은 자연스러운 일이다. 예를들어 MVC로 시작했지만 어떤 한 화면에서만 MVC로 관리하기 어려워지는 상황이 생기면 그 부분만 MVVM으로 바꿀 수 있다. 이런 아키텍처들은 서로 잘 공존할 수 있기때문에, 다른 화면이 MVC 골격으로 잘 동작하면 바꿀 필요가 없다.
+
+* #### And more.
+  * 하지만 실제 iOS의 코코아 터치 프레임워크의 로직을 분석해봤을때, View와 ViewController가 하나의 모듈로써 동작하는 형태의 모델을 가지고 있으며, 이를 분리하기 위해서는 Apple이 지향하는 모델링과는 다른 방식으로 설계를 하는 방법도 공부를 해둬야할거같다.
 
 ## 참고자료
 * [iOS와 디자인 패턴](http://10apps.tistory.com/153)
@@ -81,3 +90,4 @@
 * [애플 cocoa란 무엇인가??](http://m.blog.naver.com/web4click/110167390575)
 * [5 iOS Architectures in 5 minutes](http://slides.com/borlov/arch/fullscreen#/)
 * [OSX와 iOS 비교](http://blog.naver.com/PostView.nhn?blogId=huns21&logNo=120193330920&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
+* [안드로이드 Architecture 패턴 Part 1: 모델 뷰 컨트롤러 (Model-View-Controller)](https://medium.com/nspoons/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-architecture-%ED%8C%A8%ED%84%B4-part-1-%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-model-view-controller-881c6fda24d9)
