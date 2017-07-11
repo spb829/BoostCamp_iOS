@@ -24,7 +24,7 @@
 >   >- 컨텐츠의 양식과 문제형식은 제한없음.
 >   >- 단, 학습자가 1시간 내로 학습을 완료할 수 있는 분량으로 제작.
 
-* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2)(진행중)
+* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week2/groupAssignment.md)(진행중)
 
 ### 개인 과제
  * [김다혜](https://github.com/iluvdadong/boostcamp_iOS_dadong/tree/master/week2)
