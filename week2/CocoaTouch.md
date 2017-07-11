@@ -63,6 +63,7 @@
   * 결국에 [이러한](img/Cocoa_Touch.jpg) 결과를 낳게 된다.
 
 ## Conclusion
+
 * #### 개선된 MVC Pattern
   * Apple의 문서를 참고하였을때 Apple이 지향하는 MVC Pattern은 **기존의 MVC모델에서 개선된 형태의 모델**이다.
   * 전통적인 MVC를 개선한 Apple이 기대했던 MVC는 본문에서 보는바와 같이 뷰와 모델이 완전히 분리되어 있으며, 컨트롤러가 중간에서 데이터와 액션을 중재한다.
