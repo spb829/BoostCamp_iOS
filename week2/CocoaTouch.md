@@ -62,7 +62,7 @@
             데이터소스(data source)가 될테고, 종종 네트워크 요청과같은 처리도 하고 있을지 모른다.
   * 결국에 [이러한](img/Cocoa_Touch.jpg) 결과를 낳게 된다.
 
-### Conclusion
+## Conclusion
 * #### MVC맞네
   * ㅇ
 * #### 아닌디
