@@ -50,4 +50,4 @@ class ViewController: UIViewController, UITextFieldDelegate {
 }
 ```
 
-위와 같이 ViewController에서 UITextFieldDelegate 프로토콜을 구현하면 textField의 delegate로 ViewController에서 처리할 수 있게 된다.
+위와 같이 ViewController에서 UITextFieldDelegate 프로토콜을 구현하면 textField의 delegate로 ViewController로 지정하여 특정 행동을 대신 처리할 수 있게 된다.
