@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let textField = UITextField()
+        textField.delegate
         initViews()
     }
     
