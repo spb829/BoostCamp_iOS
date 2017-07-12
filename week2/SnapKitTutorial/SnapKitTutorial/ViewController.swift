@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let textField = UITextField()
-        textField.delegate
+        
         initViews()
     }
     
