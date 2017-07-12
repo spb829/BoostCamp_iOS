@@ -604,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7DB94254456856ED5403B511 /* Pods-SnapKitTutorial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 23EFP3FERN;
 				INFOPLIST_FILE = SnapKitTutorial/Info.plist;
@@ -618,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3012E59C835536BEC55FD23B /* Pods-SnapKitTutorial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 23EFP3FERN;
 				INFOPLIST_FILE = SnapKitTutorial/Info.plist;
@@ -709,6 +711,7 @@
 				492798211F160A1D00CA14F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		492798221F160A1D00CA14F3 /* Build configuration list for PBXNativeTarget "SnapKitTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -717,6 +720,7 @@
 				492798241F160A1D00CA14F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		492798251F160A1D00CA14F3 /* Build configuration list for PBXNativeTarget "SnapKitTutorialUITests" */ = {
 			isa = XCConfigurationList;
@@ -725,6 +729,7 @@
 				492798271F160A1D00CA14F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
