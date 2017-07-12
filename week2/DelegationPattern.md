@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 	...
 
+	// 사용자가 키보드에서 Return 키를 눌렀을 때 ViewController에서 구현된 함수에서 처리
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
             return true
