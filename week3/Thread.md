@@ -67,10 +67,10 @@
 * [스레드의 개념과 원리](http://www.jiniya.net/wp/archives/5856)
 
 
-## iOS에서 실제로 스레드는 어떻게 사용되고 있는지, Cocoa Touch Framework에는 어떤 경우에 자동으로 새로운 스레드를 만들어주는지 예를 찾아보세요
+## 예시 1)
 
+* iOS에서 실제로 스레드는 어떻게 사용되고 있는지, Cocoa Touch Framework에는 어떤 경우에 자동으로 새로운 스레드를 만들어주는지 예를 찾아보세요
 
-### 예시1)
 ```swift
 URLSession
 ```
@@ -94,29 +94,28 @@ URLSession
 
 ### 코드
 ```swift
-var dataTask: URLSessionDataTask?
-
-func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
-dataTask?.cancel()
-
-if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
-urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
-guard let url = urlComponents.url else { return }
-dataTask = defaultSession.dataTask(with: url) { data, response, error in
-defer { self.dataTask = nil }
-if let error = error {
-self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-} else if let data = data,
-let response = response as? HTTPURLResponse,
-response.statusCode == 200 {
-self.updateSearchResults(data)
-DispatchQueue.main.async {
-completion(self.tracks, self.errorMessage)
-}
-}
-}
-dataTask?.resume()
-}
-}
+  var dataTask: URLSessionDataTask?
+  
+  func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
+    dataTask?.cancel()
+    
+    if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
+      urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
+      guard let url = urlComponents.url else { return }
+      dataTask = defaultSession.dataTask(with: url) { data, response, error in
+        defer { self.dataTask = nil }
+        if let error = error {
+          self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        } else if let data = data,
+          let response = response as? HTTPURLResponse,
+          response.statusCode == 200 {
+          self.updateSearchResults(data)
+          DispatchQueue.main.async {
+            completion(self.tracks, self.errorMessage)
+          }
+        }
+      }
+      dataTask?.resume()
+    }
+  }
 ```
-
