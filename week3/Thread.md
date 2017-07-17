@@ -135,8 +135,8 @@ vImage 관련 함수
 ## iOS 에서의 멀티스레딩
 
 * iOS에서 멀티스레딩을 하기 위한 옵션으로는 3가지가 있다.
-   - NSThread
-   - GCD(Grand Central Dispatch)
+   - NSThread
+   - GCD(Grand Central Dispatch)
    - NSOperation
  
 * NSThread
