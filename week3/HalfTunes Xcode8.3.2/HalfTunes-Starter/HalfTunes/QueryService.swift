@@ -32,60 +32,51 @@ import Foundation
 
 // Runs query data task, and stores results in array of Tracks
 class QueryService {
-
+  
   typealias JSONDictionary = [String: Any]
   typealias QueryResult = ([Track]?, String) -> ()
-
+  
   var tracks: [Track] = []
   var errorMessage = ""
-
+  
   let defaultSession = URLSession(configuration: .default)
   
   var dataTask: URLSessionDataTask?
-
+  
   func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
-    // 1
     dataTask?.cancel()
     
     if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
       urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
-      // 3
       guard let url = urlComponents.url else { return }
-      // 4
       dataTask = defaultSession.dataTask(with: url) { data, response, error in
         defer { self.dataTask = nil }
-        // 5
         if let error = error {
           self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
         } else if let data = data,
           let response = response as? HTTPURLResponse,
           response.statusCode == 200 {
           self.updateSearchResults(data)
-          // 6
           DispatchQueue.main.async {
             completion(self.tracks, self.errorMessage)
           }
         }
       }
-      // 7
       dataTask?.resume()
     }
-//    DispatchQueue.main.async {
-//      completion(self.tracks, self.errorMessage)
-//    }
   }
-
+  
   fileprivate func updateSearchResults(_ data: Data) {
     var response: JSONDictionary?
     tracks.removeAll()
-
+    
     do {
       response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
     } catch let parseError as NSError {
       errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
       return
     }
-
+    
     guard let array = response!["results"] as? [Any] else {
       errorMessage += "Dictionary does not contain results key\n"
       return
@@ -104,5 +95,5 @@ class QueryService {
       }
     }
   }
-
+  
 }
