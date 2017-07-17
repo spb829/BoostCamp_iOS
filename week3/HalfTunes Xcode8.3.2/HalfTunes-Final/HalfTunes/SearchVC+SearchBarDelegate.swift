@@ -27,28 +27,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
- import UIKit
- 
- @UIApplicationMain
- class AppDelegate: UIResponder, UIApplicationDelegate {
-  
-  var window: UIWindow?
-  let tintColor =  UIColor(red: 242/255, green: 71/255, blue: 63/255, alpha: 1)
-  
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    customizeAppearance()
-    return true
+
+import Foundation
+import UIKit
+
+extension SearchViewController: UISearchBarDelegate {
+
+  @objc func dismissKeyboard() {
+    searchBar.resignFirstResponder()
   }
   
-  // MARK - App Theme Customization
-  
-  private func customizeAppearance() {
-    window?.tintColor = tintColor
-    UISearchBar.appearance().barTintColor = tintColor
-    UINavigationBar.appearance().barTintColor = tintColor
-    UINavigationBar.appearance().tintColor = UIColor.white
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue:UIColor.white]
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    dismissKeyboard()
+    if !searchBar.text!.isEmpty {
+      UIApplication.shared.isNetworkActivityIndicatorVisible = true
+      queryService.getSearchResults(searchTerm: searchBar.text!) { results, errorMessage in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        if let results = results {
+          self.searchResults = results
+          self.tableView.reloadData()
+          self.tableView.setContentOffset(CGPoint.zero, animated: false)
+        }
+        if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
+      }
+    }
   }
- }
- 
+  
+  func position(for bar: UIBarPositioning) -> UIBarPosition {
+    return .topAttached
+  }
+  
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    view.addGestureRecognizer(tapRecognizer)
+  }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    view.removeGestureRecognizer(tapRecognizer)
+  }
+}

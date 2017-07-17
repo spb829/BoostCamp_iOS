@@ -36,15 +36,39 @@ class QueryService {
   typealias JSONDictionary = [String: Any]
   typealias QueryResult = ([Track]?, String) -> ()
 
+  // 1
+  let defaultSession = URLSession(configuration: .default)
+  // 2
+  var dataTask: URLSessionDataTask?
   var tracks: [Track] = []
   var errorMessage = ""
 
-  // TODO
-
   func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
-    // TODO
-    DispatchQueue.main.async {
-      completion(self.tracks, self.errorMessage)
+    // 1
+    dataTask?.cancel()
+    // 2
+    if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
+      urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
+      // 3
+      guard let url = urlComponents.url else { return }
+      // 4
+      dataTask = defaultSession.dataTask(with: url) { data, response, error in
+        defer { self.dataTask = nil }
+        // 5
+        if let error = error {
+          self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        } else if let data = data,
+          let response = response as? HTTPURLResponse,
+          response.statusCode == 200 {
+          self.updateSearchResults(data)
+          // 6
+          DispatchQueue.main.async {
+            completion(self.tracks, self.errorMessage)
+          }
+        }
+      }
+      // 7
+      dataTask?.resume()
     }
   }
 
