@@ -25,3 +25,36 @@ URLSession
 > 
 > 스레드에는 우선순위가 있는데, 메인스레드의 우선순위가 가장 높고 다른 스레드는 보통이거나 낮다.
 다른 스레드의 우선순위를 지정할 수 있지만, 이들의 우선순위가 높을 수록 메인스레드의 속도가 느려진다는 부작용이 있다.
+
+### 코드
+```swift
+var dataTask: URLSessionDataTask?
+
+  func getSearchResults(searchTerm: String, completion: @escaping QueryResult) {
+    // 1
+    dataTask?.cancel()
+    
+    if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
+      urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
+      // 3
+      guard let url = urlComponents.url else { return }
+      // 4
+      dataTask = defaultSession.dataTask(with: url) { data, response, error in
+        defer { self.dataTask = nil }
+        // 5
+        if let error = error {
+          self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        } else if let data = data,
+          let response = response as? HTTPURLResponse,
+          response.statusCode == 200 {
+          self.updateSearchResults(data)
+          // 6
+          DispatchQueue.main.async {
+            completion(self.tracks, self.errorMessage)
+          }
+        }
+      }
+      // 7
+      dataTask?.resume()
+    }
+```
