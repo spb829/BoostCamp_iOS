@@ -13,32 +13,32 @@ class ViewController: UIViewController, NSURLConnectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let thread1 = Thread(target: self, selector: #selector(self.thread1), object: nil)
         
-        thread1.start()
         
-        let thread2 = Thread(target: self, selector: #selector(self.thread2), object: nil)
-        
-        thread2.start()
-        
-        NSURLConnection.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    public func thread1() -> Void {
-        while(true) {
-            print(#function)
-        }
     }
     
-    public func thread2() -> Void {
-        while(true) {
-            print(#function)
+    func preload(completionHandler: @escaping ([[String: AnyObject]]?) -> Void) {
+        let session: URLSession = {
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 5
+            configuration.timeoutIntervalForResource = 5
+            return URLSession(configuration: configuration, delegate: nil, delegateQueue: nil)
+        }()
+        
+        let url = URL(string: "http://www.naver.com")!
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []), let array = json as? [[String: AnyObject]] {
+                DispatchQueue.main.async {
+                    completionHandler(array)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(nil)
+                }
+            }
         }
+        task.resume()
     }
 }
 
