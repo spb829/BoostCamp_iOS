@@ -12,7 +12,7 @@
 >
 >- Foundation Framework에서는 어떤 방식으로 스레드를 다룰 수 있는지 찾아보고 각 예를 실질적인 코드로 표현해보세요
 
-* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week3)
+* [과제제출](https://github.com/spb829/BoostCamp_iOS/tree/master/week3/Thread.md)
 
 ### 팀 과제 공통
 
