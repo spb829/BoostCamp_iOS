@@ -24,3 +24,7 @@ convenience init(random: Bool = false) {
         }
     }
 ```
+
+예시
+
+![img_contacts_example](images/img_contacts_example.png)
