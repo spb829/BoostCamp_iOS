@@ -44,7 +44,37 @@
   * 리스코프 치환 원칙
     > “프로그램의 객체는 프로그램의 정확성을 깨뜨리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.” 계약에 의한 설계를 참고하라.
 
-  *
+![LSP_Header](images/LSP_Header.png)
+* **치환성**(substitutability)은 객체 지향 프로그래밍 원칙이다.
+* 컴퓨터 프로그램에서 자료형 **B** 가 자료형 **A** 의 하위형이라면 필요한 프로그램의 속성(정확성, 수행하는 업무 등)의 변경 없이 자료형 **A** 의 객체를 자료형 **B** 의 객체로 교체(치환)할 수 있어야 한다는 원칙이다.
+* 집합으로 표현한 예시
+  * ![Sets](images/Set_AnB.png)
+  * 집합 A는 집합 B의 부분집합이므로 집합 A의 원소들은 모두 집합 B에 포함될 것이다.
+  * 따라서 자료형 A의 속성들은 자료형 B에도 모두 속해져 있다. (혹은 같은 의미를 가진 속성과 대치된다.)
+  * 그러므로 (BaseType)A로 할 수 있는 메소드들을 똑같이 (SubType)B에서도 실행가능하고 같은 결과를 보장해야한다.
+* LSP In Swift
+  ```swift
+  class Rectangle {
+
+      var width: Float = 0
+      var length: Float = 0
+
+      var area: Float {
+          return width * length
+      }
+  }
+
+  class Square: Rectangle {
+
+      override var width: Float {
+          didSet {
+              length = width
+          }
+      }
+  }
+  ```
+
+* 간단히 말하자면 LSP는 확장을 한다면 상위형에서 해주던 책임(약속)을 하위형에서 똑같이 한다고 보장해줘야한다는 원칙이다.
 
 ## I : ISP
 * Interface segregation principle
@@ -60,10 +90,11 @@
 
 
 
+
 ## Conclusion
 * ### Summary
   * #### ㅇ
-    * 
+    *
 
 ## References
 * [SOLID - 위키백과](https://ko.wikipedia.org/wiki/SOLID)
@@ -76,3 +107,6 @@
 * [의존성 주입 - 위키백과](https://ko.wikipedia.org/wiki/%EC%9D%98%EC%A1%B4%EC%84%B1_%EC%A3%BC%EC%9E%85)
 * [애자일 소프트웨어 개발 - 위키백과](https://ko.wikipedia.org/wiki/%EC%95%A0%EC%9E%90%EC%9D%BC_%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4_%EA%B0%9C%EB%B0%9C)
 * [객체 지향 프로그래밍 - 위키백과](https://ko.wikipedia.org/wiki/%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+* [리스코프 치환 원칙 - Liskov Substitution Principle for Primer](http://vandbt.tistory.com/41)
+* [SOLID Principles Applied To Swift](https://marcosantadev.com/solid-principles-applied-swift/)
+* [OOP 원칙 SOLID](https://trazy.gitbooks.io/oop/content/oop-srp.html)
