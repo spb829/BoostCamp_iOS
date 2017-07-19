@@ -110,7 +110,92 @@
   * 인터페이스 분리 원칙
     > “특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다.”
 
-  *
+  * 정의
+    > 인터페이스 분리 원칙은 큰 덩어리의 인터페이스를 구체적이고 작은 단위의 인터페이스로 분리시켜야 한다는 원칙입니다.
+    >
+    > 이와 같은 작은 단위들을 역할 인터페이스라고 부릅니다.
+    >
+    > 인터페이스 분리 원칙은 시스템의 내부 의존성을 약화시켜 리팩토링, 수정, 재패보를 보다 쉽게 할 수 있습니다.
+
+  * 프로토콜
+    > Swift에서 프로토콜은 OOP에서의 인터페이스의 역할을 합니다.
+    >
+    > 프로토콜의 특징은 다음과 같습니다.
+
+      * 특정 역할을 수행하기 위한 메소드, 프로퍼티, 기타 요구사항 등의 청사진이다.
+
+      * 프로토콜을 채틱한 타입은 프로토콜이 요구한 기능을 수행하여 프로토콜을 준수해야한다.
+
+      * 다중 상속이 가능하다.
+
+
+  * Swift에서의 ISP 적용
+
+    > 우선 큰 덩어리의 Protocol을 구현해봅시다.
+
+    ```
+    protocol ActionProtocol {
+        func didWalk()
+        func didRun()
+        func didSwim()
+    }
+    ```
+
+    > 이후 클래스에 특정 메소드를 사용하고자 하면 다음과 같이 구현하면 됩니다.
+
+    ```
+    class ActionClass: ActionProtocol {
+      func didWalk() {
+        // Walk Action
+      }
+
+      func didRun() {
+        // Run Action
+      }
+
+      func didSwim() {
+        // Swim Action
+      }
+    }
+    ```
+
+    > 위의 코드의 문제점은 수영을 위한 메소드만이 필요한 경우에도 필요 없는 메소드까지 구현해줘야 한다는 점입니다.
+    >
+    > 이와 같은 문제점을 해결하기 위해 다음과 같이 구현해줍시다.
+
+    ```
+    protocol WalkProtocol {
+      func didWalk()
+    }
+
+    protocol RunProtocol {
+      func didRun()
+    }
+
+    protocol SwimProtocol {
+      func didSwim()
+    }
+
+    class ActionClass: WalkProtocol, RunProtocol, SwimProtocol {
+      func didWalk() {
+        // Walk Action
+      }
+
+      func didRun() {
+        // Run Action
+      }
+
+      func didSwim() {
+        // Swim Action
+      }
+    }
+
+    class SwimAction: SwimProtocol {
+      func didSwim() {
+        // Swim Action
+      }
+    }
+    ```
 
 ## D : DIP
 * Dependency inversion principle
