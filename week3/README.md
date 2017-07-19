@@ -6,4 +6,5 @@
 
 ## 제출
 * [모둠과제 : 스레드](Thread.md)
-* [모둠 활동 과제](groupAssignment.md)
+* [모둠 활동 문제내기 : 전화번호부 만들기](groupAssignment.md)
+* [교육자료 만들기 : SOLID](SOLID.md)
