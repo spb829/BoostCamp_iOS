@@ -1,6 +1,6 @@
 # The Dependency Inversion Principle
 
-*** A. High level modules should not depend upon low level modules. Both should depend upon abstractions. ***
+***A. High level modules should not depend upon low level modules. Both should depend upon abstractions.***
 *** 하이 레벨 모듈은 로우레벨 모듈에 의존해서는 안된다. 둘 다 추상에 의존해야 한다. ***
 
 *** B. Abstractions should not depend upon details. Details should depend upon abstractions. ***
