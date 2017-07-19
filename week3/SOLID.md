@@ -54,25 +54,54 @@
   * 그러므로 (BaseType)A로 할 수 있는 메소드들을 똑같이 (SubType)B에서도 실행가능하고 같은 결과를 보장해야한다.
 * LSP In Swift
   ```swift
-  class Rectangle {
+  protocol Polygon {
+      var area: Float { get }
+  }
 
-      var width: Float = 0
-      var length: Float = 0
+  class Rectangle: Polygon {
+
+      private let width: Float
+      private let length: Float
+
+      init(width: Float, length: Float) {
+          self.width = width
+          self.length = length
+      }
 
       var area: Float {
           return width * length
       }
   }
 
-  class Square: Rectangle {
+  class Square: Polygon {
 
-      override var width: Float {
-          didSet {
-              length = width
-          }
+      private let side: Float
+
+      init(side: Float) {
+          self.side = side
+      }
+
+      var area: Float {
+          return pow(side, 2)
       }
   }
+
+  // Client Method
+
+  func printArea(of polygon: Polygon) {
+      print(polygon.area)
+  }
+
+  // Usage
+
+  let rectangle = Rectangle(width: 2, length: 5)
+  printArea(of: rectangle) // 10
+
+  let square = Square(side: 2)
+  printArea(of: square) // 4
   ```
+  * Polygon이라는 프로토콜을 사용하여 적용한 예제이다.
+  * Square는 한 변의 길이만을 받고 Rectangle은 가로, 세로 길이를 받지만 area라는 메소드를 통하여 같은 결과를 보장해준다.
 
 * 간단히 말하자면 LSP는 확장을 한다면 상위형에서 해주던 책임(약속)을 하위형에서 똑같이 한다고 보장해줘야한다는 원칙이다.
 
@@ -81,7 +110,92 @@
   * 인터페이스 분리 원칙
     > “특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다.”
 
-  *
+  * 정의
+    > 인터페이스 분리 원칙은 큰 덩어리의 인터페이스를 구체적이고 작은 단위의 인터페이스로 분리시켜야 한다는 원칙입니다.
+    >
+    > 이와 같은 작은 단위들을 역할 인터페이스라고 부릅니다.
+    >
+    > 인터페이스 분리 원칙은 시스템의 내부 의존성을 약화시켜 리팩토링, 수정, 재패보를 보다 쉽게 할 수 있습니다.
+
+  * 프로토콜
+    > Swift에서 프로토콜은 OOP에서의 인터페이스의 역할을 합니다.
+    >
+    > 프로토콜의 특징은 다음과 같습니다.
+
+      * 특정 역할을 수행하기 위한 메소드, 프로퍼티, 기타 요구사항 등의 청사진이다.
+
+      * 프로토콜을 채틱한 타입은 프로토콜이 요구한 기능을 수행하여 프로토콜을 준수해야한다.
+
+      * 다중 상속이 가능하다.
+
+
+  * Swift에서의 ISP 적용
+
+    > 우선 큰 덩어리의 Protocol을 구현해봅시다.
+
+    ```
+    protocol ActionProtocol {
+        func didWalk()
+        func didRun()
+        func didSwim()
+    }
+    ```
+
+    > 이후 클래스에 특정 메소드를 사용하고자 하면 다음과 같이 구현하면 됩니다.
+
+    ```
+    class ActionClass: ActionProtocol {
+      func didWalk() {
+        // Walk Action
+      }
+
+      func didRun() {
+        // Run Action
+      }
+
+      func didSwim() {
+        // Swim Action
+      }
+    }
+    ```
+
+    > 위의 코드의 문제점은 수영을 위한 메소드만이 필요한 경우에도 필요 없는 메소드까지 구현해줘야 한다는 점입니다.
+    >
+    > 이와 같은 문제점을 해결하기 위해 다음과 같이 구현해줍시다.
+
+    ```
+    protocol WalkProtocol {
+      func didWalk()
+    }
+
+    protocol RunProtocol {
+      func didRun()
+    }
+
+    protocol SwimProtocol {
+      func didSwim()
+    }
+
+    class ActionClass: WalkProtocol, RunProtocol, SwimProtocol {
+      func didWalk() {
+        // Walk Action
+      }
+
+      func didRun() {
+        // Run Action
+      }
+
+      func didSwim() {
+        // Swim Action
+      }
+    }
+
+    class SwimAction: SwimProtocol {
+      func didSwim() {
+        // Swim Action
+      }
+    }
+    ```
 
 ## D : DIP
 * Dependency inversion principle
