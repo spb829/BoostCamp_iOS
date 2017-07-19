@@ -79,6 +79,48 @@ Handler라는 클래스는의 메소드를 살펴보자.
 (2) API의 응답(데이터)를 파싱하고 배열을 만든다.
 (3) 데이터베이스에 배열을 저장한다.
 
+=======
+
+### SRP에서 고려해야할 것
+> There Should NEVER be MORE THAN ONE REASON for a CLASS to CHANGE
+( 모든 클래스는 하나의 책임만 가지며, 클래스는 그 책임을 완전히 캡슐화 해야한다.)
+
+***캡슐화*** 는
+1. 객체의 속성 (data fields)과 행위(methods)를 하나로 묶고,
+2. 실제 구현 내용 일부를 외부에 감추어 은닉하는 것이다.
+
+### 예제
+> 클래스를 만들거나, 변경할 때마다 자문해라!
+> 이 클래스는 몇개의 책임을 가지고 있는가?
+
+```swift
+class Handler {
+ 
+    func handle() {
+        let data = requestDataToAPI()
+        let array = parse(data: data)
+        saveToDB(array: array)
+    }
+ 
+    private func requestDataToAPI() -> Data {
+        // send API request and wait the response
+    }
+ 
+    private func parse(data: Data) -> [String] {
+        // parse the data and create the array
+    }
+ 
+    private func saveToDB(array: [String]) {
+        // save the array in a database (CoreData/Realm/...)
+    }
+}
+```
+
+Handler라는 클래스는의 메소드를 살펴보자.
+(1) data 상수에 API 에서 받아온 데이터를 저장한다.
+(2) API의 응답(데이터)를 파싱하고 배열을 만든다.
+(3) 데이터베이스에 배열을 저장한다.
+
 하나의 클래스가 여러개의 책임을 가지고 있는 것을 확인할 수 있다.
 이를 아래와 같이 책임들을 작은 클래스들로 쪼개서 옮김으로써 해결할 수 있다.
 
