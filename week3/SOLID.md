@@ -43,7 +43,7 @@
 > There Should NEVER be MORE THAN ONE REASON for a CLASS to CHANGE
 ( 모든 클래스는 하나의 책임만 가지며, 클래스는 그 책임을 완전히 캡슐화 해야한다.)
 
-***캡슐화***는
+***캡슐화*** 는
 1. 객체의 속성 (data fields)과 행위(methods)를 하나로 묶고,
 2. 실제 구현 내용 일부를 외부에 감추어 은닉하는 것이다.
 
