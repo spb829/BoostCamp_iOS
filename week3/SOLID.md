@@ -1,16 +1,20 @@
 # SOLID
 
 ## Introduction
-* #### SOLID
-  > 컴퓨터 프로그래밍에서 SOLID란 로버트 마틴이 2000년대 초반에 명명한 **객체 지향 프로그래밍 및 설계의 다섯 가지 기본 원칙** 을 마이클 페더스가 두문자어 기억술로 소개한 것이다.
-  >
-  > 프로그래머가 시간이 지나도 유지 보수와 확장이 쉬운 시스템을 만들고자 할 때 이 원칙들을 함께 적용할 수 있다.
-  >
-  > SOLID 원칙들은 소프트웨어 작업에서 프로그래머가 소스 코드가 읽기 쉽고 확장하기 쉽게 될 때까지 소프트웨어 소스 코드를 리팩터링하여 코드 냄새를 제거하기 위해 적용할 수 있는 지침이다.
-  >
-  > 이 원칙들은 애자일 소프트웨어 개발과 적응적 소프트웨어 개발의 전반적 전략의 일부다.
 
-![SOLID](images/SOLID_Table.png)
+> S - Single Responsibility principle
+> : 하나의 클래스는 하나의 책임만 가져야한다.
+> O - Open/closed principle
+> : 소프트웨어 요소는 확장에는 열려있으나, 변경에는 닫혀 있어야 한다.
+> L - Liskov substitution principle
+> : 프로그램의 객체 프로그램의 정확성을 깨뜨리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다. 
+> I  - Interface segregation principle
+> : 특정 클라이언트를 위한 인터페이스 여러개가 범용 인터페이스 하나보다 낫다
+> D - Dependency inversion principle
+> : 프로그래머는 추상화에 의존해야지, 구체화에 의존하면 안된다.
+
+* 프로그래머가 시간이 지나도 유지보수와 확장이 쉬운 시스템을 만들고자 할 때 이 원칙들을 함께 적용할 수 있다. 
+* 위와 같은 원칙들은 프로그래머가 소스코드가 읽기 쉽고 확장하기 쉽게 될 때까지 소스코드를 리팩터링하여 코드스멜, 즉 코드에서 심오한 문제를 일으킬 가능성이 있는 프로그램 소스코드의 증상을 제거하기 위해 적용할 수 있는 지침이다. 
 * #### OOP
   > 객체 지향 프로그래밍(Object-Oriented Programming, OOP)은 컴퓨터 프로그래밍의 패러다임의 하나이다.
   >
@@ -25,12 +29,103 @@
     * 다형성
     * 동적 바인딩
 
-## S : SRP
-* #### Single responsibility principle
-  * 단일 책임 원칙
-    > 한 클래스는 하나의 책임만 가져야 한다.
 
-  *
+
+## S : SRP
+## SRP (Single Responsibility Principle
+
+### SRP에서 고려해야할 것
+> There Should NEVER be MORE THAN ONE REASON for a CLASS to CHANGE
+( 모든 클래스는 하나의 책임만 가지며, 클래스는 그 책임을 완전히 캡슐화 해야한다.)
+
+***캡슐화***는
+1. 객체의 속성 (data fields)과 행위(methods)를 하나로 묶고,
+2. 실제 구현 내용 일부를 외부에 감추어 은닉하는 것이다.
+
+### 예제
+> 클래스를 만들거나, 변경할 때마다 자문해라!
+> 이 클래스는 몇개의 책임을 가지고 있는가?
+
+```swift
+class Handler {
+ 
+    func handle() {
+        let data = requestDataToAPI()
+        let array = parse(data: data)
+        saveToDB(array: array)
+    }
+ 
+    private func requestDataToAPI() -> Data {
+        // send API request and wait the response
+    }
+ 
+    private func parse(data: Data) -> [String] {
+        // parse the data and create the array
+    }
+ 
+    private func saveToDB(array: [String]) {
+        // save the array in a database (CoreData/Realm/...)
+    }
+}
+```
+
+Handler라는 클래스는의 메소드를 살펴보자.
+(1) data 상수에 API 에서 받아온 데이터를 저장한다.
+(2) API의 응답(데이터)를 파싱하고 배열을 만든다.
+(3) 데이터베이스에 배열을 저장한다.
+
+하나의 클래스가 여러개의 책임을 가지고 있는 것을 확인할 수 있다.
+이를 아래와 같이 책임들을 작은 클래스들로 쪼개서 옮김으로써 해결할 수 있다.
+
+
+```swift
+class Handler {
+ 
+    let apiHandler: APIHandler
+    let parseHandler: ParseHandler
+    let dbHandler: DBHandler
+ 
+    init(apiHandler: APIHandler, parseHandler: ParseHandler, dbHandler: DBHandler) {
+        self.apiHandler = apiHandler
+        self.parseHandler = parseHandler
+        self.dbHandler = dbHandler
+    }
+ 
+    func handle() {
+        let data = apiHandler.requestDataToAPI()
+        let array = parseHandler.parse(data: data)
+        dbHandler.saveToDB(array: array)
+    }
+}
+ 
+class APIHandler {
+ 
+    func requestDataToAPI() -> Data {
+        // send API request and wait the response
+    }
+}
+ 
+class ParseHandler {
+ 
+    func parse(data: Data) -> [String] {
+        // parse the data and create the array
+    }
+}
+ 
+class DBHandler {
+ 
+    func saveToDB(array: [String]) {
+        // save the array in a database (CoreData/Realm/...)
+    }
+}
+```
+
+이렇게 SRP를 고려함으로서 클래스들을 가장 깔끔하게 유지할 수 있다. 더불어  변경전의 코드 예제에서는 ‘requestDataToAPI’, ‘parse’, ‘saveTODB’ 와 같은 메소드들을 바로 테스트할 수 없다. 각각이 전부 private 메소드로 구현되어져있고, private으로 구현된 메소드는 자기 클래스 내부의 메소드에서만 접근이 가능하기 때문이다. 즉, Handler의 객체를 만들더라도 각각의 메소드를 떼어서 테스트할 수가 없다. 
+
+ 그러나, SRP를 고려하여 래팩토링을 거친 후에는, ‘APIHander’,  ‘ParseHandler’,  ‘DBHandler’ 클래스 들을 통해 쉽게 테스트를 할 수 있다. 
+  
+  
+  
 
 ## O : OCP
 * #### Open/closed principle
