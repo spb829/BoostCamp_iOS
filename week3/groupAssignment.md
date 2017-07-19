@@ -1,6 +1,6 @@
-## 모둠활동 과제
+# 모둠활동 과제
 
-### Contacts 목록 화면 만들기
+## Contacts 목록 화면 만들기
 
 ![img_contacts](images/img_contacts.png)
 
@@ -8,7 +8,7 @@
 * 각 연락처는 Last name의 첫 알파벳의 대문자에 해당하는 섹션에 포함됩니다.
 * 섹션은 A~Z 26개 또는 해당 섹션에 연락처가 없을 경우 그 이하가 될 수 있습니다.
 
-연락처 랜덤 생성
+## 연락처 랜덤 생성
 ```swift
 convenience init(random: Bool = false) {
         if random {
@@ -24,3 +24,7 @@ convenience init(random: Bool = false) {
         }
     }
 ```
+
+## 예시
+
+![img_contacts_example](images/img_contacts_example.png)
