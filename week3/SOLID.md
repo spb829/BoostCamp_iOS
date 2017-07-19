@@ -125,9 +125,12 @@ class DBHandler {
 }
 ```
 
-이렇게 SRP를 고려함으로서 클래스들을 가장 깔끔하게 유지할 수 있다. 더불어  변경전의 코드 예제에서는 ‘requestDataToAPI’, ‘parse’, ‘saveTODB’ 와 같은 메소드들을 바로 테스트할 수 없다. 각각이 전부 private 메소드로 구현되어져있고, private으로 구현된 메소드는 자기 클래스 내부의 메소드에서만 접근이 가능하기 때문이다. 즉, Handler의 객체를 만들더라도 각각의 메소드를 떼어서 테스트할 수가 없다. 
+이렇게 SRP를 고려함으로서 클래스들을 가장 깔끔하게 유지할 수 있다. 
+더불어  변경전의 코드 예제에서는 `requestDataToAPI`, `parse`, `saveTODB` 와 같은 메소드들을 바로 테스트할 수 없다. 
+각각이 전부 private 메소드로 구현되어져있고, private으로 구현된 메소드는 자기 클래스 내부의 메소드에서만 접근이 가능하기 때문이다. 
+즉, Handler의 객체를 만들더라도 각각의 메소드를 떼어서 테스트할 수가 없다. 
 
- 그러나, SRP를 고려하여 래팩토링을 거친 후에는, ‘APIHander’,  ‘ParseHandler’,  ‘DBHandler’ 클래스 들을 통해 쉽게 테스트를 할 수 있다. 
+그러나, SRP를 고려하여 래팩토링을 거친 후에는, `APIHander`,  `ParseHandler`,  `DBHandler` 클래스 들을 통해 쉽게 테스트를 할 수 있다. 
   
   
   
