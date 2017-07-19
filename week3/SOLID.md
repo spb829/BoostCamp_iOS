@@ -54,25 +54,54 @@
   * 그러므로 (BaseType)A로 할 수 있는 메소드들을 똑같이 (SubType)B에서도 실행가능하고 같은 결과를 보장해야한다.
 * LSP In Swift
   ```swift
-  class Rectangle {
+  protocol Polygon {
+      var area: Float { get }
+  }
 
-      var width: Float = 0
-      var length: Float = 0
+  class Rectangle: Polygon {
+
+      private let width: Float
+      private let length: Float
+
+      init(width: Float, length: Float) {
+          self.width = width
+          self.length = length
+      }
 
       var area: Float {
           return width * length
       }
   }
 
-  class Square: Rectangle {
+  class Square: Polygon {
 
-      override var width: Float {
-          didSet {
-              length = width
-          }
+      private let side: Float
+
+      init(side: Float) {
+          self.side = side
+      }
+
+      var area: Float {
+          return pow(side, 2)
       }
   }
+
+  // Client Method
+
+  func printArea(of polygon: Polygon) {
+      print(polygon.area)
+  }
+
+  // Usage
+
+  let rectangle = Rectangle(width: 2, length: 5)
+  printArea(of: rectangle) // 10
+
+  let square = Square(side: 2)
+  printArea(of: square) // 4
   ```
+  * Polygon이라는 프로토콜을 사용하여 적용한 예제이다.
+  * Square는 한 변의 길이만을 받고 Rectangle은 가로, 세로 길이를 받지만 area라는 메소드를 통하여 같은 결과를 보장해준다.
 
 * 간단히 말하자면 LSP는 확장을 한다면 상위형에서 해주던 책임(약속)을 하위형에서 똑같이 한다고 보장해줘야한다는 원칙이다.
 
