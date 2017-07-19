@@ -1,9 +1,11 @@
 # The Dependency Inversion Principle
 
 ***A. High level modules should not depend upon low level modules. Both should depend upon abstractions.***
+
 ***하이 레벨 모듈은 로우레벨 모듈에 의존해서는 안된다. 둘 다 추상에 의존해야 한다.***
 
 ***B. Abstractions should not depend upon details. Details should depend upon abstractions.***
+
 ***추상은 상세를 의존해서는 안된다. 상세는 추상을 의존해야 한다.***
 
 DIP는 재사용성을 위한 중요한 원칙이다. DIP는 OCP(Open-Closed Principle)과 비슷한 접근을 가진다. 깨끗한 구조를 가지기 위해서는 의존성을 해제해야 한다.
