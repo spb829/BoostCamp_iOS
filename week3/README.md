@@ -6,4 +6,4 @@
 
 ## 제출
 * [모둠과제 : 스레드](Thread.md)
-* [모둠 활동 과제](week3_activity_b.md)
+* [모둠 활동 과제](groupAssignment.md)
