@@ -70,12 +70,29 @@
   * 지정 이니셜라이저는 항상 위로 위임을 한다.
   * 편의 이니셜라이저는 항상 가로질러 위임한다.
 
+* 자세한 데모 코드는 [여기](https://github.com/SamStone92/DesignPatternsInSwift/blob/master/)에...
+
 --------
 
 ## 응답 체인 패턴
-* Chain of Responsibility
+* Chain of Responsibility  
+> 객체 지향 디자인에서 chain-of-responsibility pattern은 명령 객체와 일련의 처리 객체를 포함하는 디자인 패턴이다. 각각의 처리 객체는 명령 객체를 처리할 수 있는 연산의 집합이고, 체인 안의 처리 객체가 핸들할 수 없는 명령은 다음 처리 객체로 넘겨진다. 이 작동방식은 새로운 처리 객체부터 체인의 끝까지 다시 반복된다.
+>
+> 표준 책임 연쇄 모델이 변화하면서, 어떤 처리 방식에서는 다양한 방향으로 명령을 보내 책임을 트리 형태로 바꾸는 관제사 역할을 하기도 한다. 몇몇 경우에서는, 처리 객체가 상위의 처리 객체와 명령을 호출하여 작은 파트의 문제를 해결하기 위해 재귀적으로 실행된다. 이 경우 재귀는 명령이 처리되거나 모든 트리가 탐색될때까지 진행되게 된다. XML(파싱되었으나 실행되지 않은) 인터프리터가 한 예이다.
+>
+> 이 패턴은 결합을 느슨하게 하기 위해 고안되었으며 가장 좋은 프로그래밍 사례로 꼽힌다.
+
+* Main idea :
+  * 메시지에 따라 응답 객체를 직접 지정 혹은 바인딩하여 결합성을 올리지 않고 **응답할 가능성이 있는 객체들** 을 반복 확인한다.
 
 
 
 ## References
 * [[Swift]Initialization 정리](http://minsone.github.io/mac/ios/swift-initialization-summary)
+* [Apple - The Swift Programming Language (Swift 4) - Initialization](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html)
+* [Phase 1 and Phase 2 initialization in Swift - StackOverflow](https://stackoverflow.com/questions/29230467/phase-1-and-phase-2-initialization-in-swift)
+* [Design Patterns in Swift: Chain of Responsibility Pattern](https://medium.com/design-patterns-in-swift/design-patterns-in-swift-chain-of-responsibility-pattern-f575c85a43c)
+* [DesignPatternsInSwift - Github](https://github.com/SamStone92/DesignPatternsInSwift)
+* [책임 연쇄 패턴 - 위키백과](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
+* [Follow the Chain of Responsibility](http://www.javaworld.com/article/2073684/java-web-development/follow-the-chain-of-responsibility.html)
+* [Swifty Responder Chain](http://roopc.net/posts/2016/swifty-responder-chain/)
