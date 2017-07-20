@@ -154,10 +154,49 @@ class SubDada: SuperDada {
 * Main idea :
   * 메시지에 따라 응답 객체를 직접 지정 혹은 바인딩하여 결합성을 올리지 않고 **응답할 가능성이 있는 객체들** 을 반복 확인한다.
 
+- UIApplication  객체 : app event queue에 들어온 이벤트를 처리한다.
 
+
+#### 어플리케이션이 받는 event
+- UIControl Actions : Action, target pattern을 사용하여 등록된 action
+- User event : touch, shake 등 유저가 발생시킨 이벤트
+- System events : low memory, rotation 등의 이벤트
+
+#### UIControl Actions
+
+touch가 아닌 Action
+
+> application이 first responder에게 호출을 전달하고, first responder가 system을 처리하지 못하면 responder-chain을 따라 적절한 responder를 찾는다.
+
+touch Action
+
+> system touch 감지
+
+> -> Application
+
+> -> _touchesEvent  내부 메소드에서 touch event  이벤트를 받는다
+
+> -> 이 이벤트를 sendEvent를 사용하여 UIWindow에 전달
+
+> -> hit tes 진행(touch가 뷰의 범위내에 있는지 확인)
+
+> -> 이 hit test는 최상위 뷰에 도달할때 가지 계속적으로 호출된다.
+
+> 마지막 최상위 뷰에 윈도우가 이벤트를 보낸다
+
+
+#### 이벤트를 받은 경우 처리 방법 3가지
+1. 뷰가 이벤트에 해당하는 메소드를 구현하지 않으면 다음 responder에 전달.
+2. 이벤트를 받아 처리하고 superview가 이 이벤트를 받을 수 있도록 super를 호출
+3. 위의 메소드를 받고 다음 reponder이 처리 못하도록 한다.
+
+![responder_chain](images/responder_chain.png)
 
 ## References
 * [[Swift]Initialization 정리](http://minsone.github.io/mac/ios/swift-initialization-summary)
+* [Cocoa 와 Cocoa touch responder chain 이해하기
+](https://medium.com/@audrl1010/cocoa-%EC%99%80-cocoa-touch-responder-chain%EC%97%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-5121d8d707d2)
+
 * [Apple - The Swift Programming Language (Swift 4) - Initialization](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html)
 * [Phase 1 and Phase 2 initialization in Swift - StackOverflow](https://stackoverflow.com/questions/29230467/phase-1-and-phase-2-initialization-in-swift)
 * [Design Patterns in Swift: Chain of Responsibility Pattern](https://medium.com/design-patterns-in-swift/design-patterns-in-swift-chain-of-responsibility-pattern-f575c85a43c)
