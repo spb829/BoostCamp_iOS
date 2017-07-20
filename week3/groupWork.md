@@ -72,6 +72,75 @@
 
 --------
 
+## 예제 코드
+```swift
+class SuperDada {
+    var superProp: Int
+    
+    // 가장 최상위 계층의 이니셜라이저가 완료된 시점이 Phase 1
+    init(superProp: Int) {
+        self.superProp = superProp
+    }
+}
+
+class SubDada: SuperDada {
+    var subProp: Int
+    
+    init(subProp: Int) {
+        // 슈퍼클래스에 초기화 연쇄를 위로 전달하기 전에 해당 객체의 속성을 초기화 하는걸 보장해야한다.
+        // 객체의 메모리는 해당 객체의 stored 프로퍼티가 전부 초기화 되어야만 초기화 되었다고 간주한다.
+        
+        // 자신의 프로퍼티를 Phase 1에서 초기화 하지 않고 Phase 2에서 값을 초기화하면 값이 예상하지 못한 값으로 초기화 될 수 있다.
+        self.subProp = subProp
+        super.init(superProp: subProp)
+        
+        // 아래는 Phase 2단계에서 수행된다. 상위 클래스의 값을 수정할 수도 있고 자신의 메소드도 사용가능하다.
+        // Phase1에서 규칙1번이 없어서 자신의 프로퍼티를 super.init 후에 지정하게 된다면 의도하지 않은 값이 지정될 수 있다.
+        self.modifySelf(a: 5)
+        self.superProp = 5
+        // 지정 이니셜라이저는 상속받은 속성에 값을 할당하기 전에 슈퍼 클래스 이니셜라이저로 위임해야 한다. 그렇지 않으면 클래스의 새로운 값은 슈퍼클래스의 이니셜라이저로부터 값의 덮어 씌워질 것이다.
+    }
+    
+    func modifySelf(a: Int) {
+        self.subProp = a
+    }
+}
+
+class SubSubDada: SubDada {
+    var subsubProp: Int
+    
+    init(subsubProp: Int) {
+        self.subsubProp = subsubProp
+        
+        super.init(subProp: 5)
+        
+        self.subProp = 5
+    }
+}
+```
+
+Phase1에서 규칙1번이 없어서 자신의 프로퍼티를 super.init 후에 지정하게 됬을 때 문제가 생기는 경우
+```swift
+class SubDada: SuperDada {
+    var subProp: Int
+    
+    init(subProp: Int) {
+        
+        super.init(superProp: subProp)
+
+        // 자신의 프로퍼티를 super.init후에 실행하여 값 5를 의도했으나 다른 값으로 초기화 된다.
+        self.modifySelf(a: 5)
+        self.subProp = subProp
+                
+        self.superProp = 5
+    }
+    
+    func modifySelf(a: Int) {
+        self.subProp = a
+    }
+}
+```
+
 ## 응답 체인 패턴
 * Chain of Responsibility
 
