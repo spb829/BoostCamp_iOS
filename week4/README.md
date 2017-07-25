@@ -7,4 +7,4 @@
 * [모둠과제 : 사이트](Sties.md)
 * [모둠과제 : Life Cycle Method](LifeCycleMethod.md)
 * [모둠 활동 문제내기 : 진행 중](groupAssignment.md)
-* [교육자료 만들기 : SOLID](SingletonPattern.md)
+* [교육자료 만들기 : Singleton Pattern](SingletonPattern.md)
