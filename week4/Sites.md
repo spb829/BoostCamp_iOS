@@ -44,6 +44,13 @@
 
 * [Facebook Login API](https://developers.facebook.com/docs/facebook-login/ios)
 
+* [Apple - Machine Learning](https://developer.apple.com/machine-learning/)
+> 머신러닝 core ml에 들어갈 빅데이터 자료
+
+* [네이버 아이디 로그인](https://developers.naver.com/docs/login/overview/)
+
+* [구글광고](https://developers.google.com/adwords/api/docs/?hl=ko)
+
 ## Life / Health
 
 * [FatScret](https://platform.fatsecret.com/api/)
