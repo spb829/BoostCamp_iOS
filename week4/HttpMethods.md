@@ -17,6 +17,7 @@
 ----
 
 ## REST
+ **RE**presentational **S**afe **T**ransfer
 
 ### REST란?
 
