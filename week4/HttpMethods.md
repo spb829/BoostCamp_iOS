@@ -7,12 +7,6 @@
 
 ![groupWork/images/HTTP_Methods.png](groupWork/images/HTTP_Methods.png)
 
-  * HTTP Method - REST API
-    * POST - CREATE
-    * PUT - UPDATE
-    * GET - READ
-    * DELETE - DELETE
-
 * ### HTTP Message
 
   * ASCII로 인코딩된 텍스트 정보로 구성되며, 여러 줄에 걸쳐 만들어진다.
