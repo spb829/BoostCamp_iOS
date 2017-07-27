@@ -1,9 +1,10 @@
 ## 예시
 
-HTTP GET http://openapi.naver.com/v1/search/book_adv.json/d_title={query}
+### HTTP GET http://openapi.naver.com/v1/search/book_adv.json/d_title={query}
 
 Content-Type -> application/json; charset=UTF-8
 
+```json
 [
 	"books": [
 				{
@@ -18,21 +19,26 @@ Content-Type -> application/json; charset=UTF-8
 				}
 			]
 ]
+```
 
-HTTP POST http://api.book.com/v1/book
+### HTTP POST http://api.book.com/v1/book
 
+```json
 body
 {
 	"title": "adf",
 	"author": "dadong",
 	"publish_date": "2017-06-05"
 }
+```
 
-HTTP PUT http://api.book.com/v1/book/1
+### HTTP PUT http://api.book.com/v1/book/1
 
+```json
 body
 {
 	"author": "kimdadong"
 }
+```
 
-HTTP DELETE http://api.book.com/v1/book/1
+### HTTP DELETE http://api.book.com/v1/book/1
