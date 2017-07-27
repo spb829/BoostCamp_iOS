@@ -20,6 +20,8 @@
 
 ![groupWork/images/HTTPMsgStructure.png](groupWork/images/HTTPMsgStructure.png)
 
+----
+
 ## REST
 
 ### REST란?
@@ -66,7 +68,48 @@ HTTP POST , http://myweb/users/
 - 인터페이스 일관성
     - 아키텍처를 단순화시키고 작은 단위로 분리(decouple)함으로써 클라이언트-서버의 각 파트가 독립적으로 개선될 수 있도록 해준다..
 
+----
 
+### CRUD
+
+#### Create
+```
+HTTP Post, http://myweb/users/
+
+{  
+
+   "name":"DaDa",
+
+   "address":"seoul"
+
+}
+```
+
+#### Read
+
+```
+HTTP Get, http://myweb/users/terry
+```
+
+#### Update
+```
+HTTP PUT, http://myweb/users/terry
+
+{  
+
+   "name":"terry",
+
+   "address":"suwon"
+
+}
+```
+
+#### Delete
+```
+HTTP DELETE, http://myweb/users/terry
+```
+
+----
 
 ### HTTP 메서드 : 데이터 CRUD 짝짓기
 
