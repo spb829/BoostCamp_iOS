@@ -125,3 +125,4 @@ class MyViewController: UIViewController {
 * [싱글턴 패턴 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4)
 * [Singleton Pattern in Swift](http://koreyhinton.com/blog/singleton-pattern-in-swift.html)
 * [아론 힐리가스의 iOS 프로그래밍: 9장](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791186697153)
+* [Refactoring Sigleton Usage un Singleton](https://www.jessesquires.com/blog/refactoring-singletons-in-swift/)
