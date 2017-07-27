@@ -1,3 +1,5 @@
+----
+
 ## HTTP
 
 * HTTP(HyperText Transfer Protocol)는 WWW 상에서 클라이언트와 서버 사이에 이루어지는 요청/응답(request/response) 프로토콜.
