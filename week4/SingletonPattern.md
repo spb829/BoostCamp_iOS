@@ -45,10 +45,9 @@
 
   > 이후에 해당 객체를 필요한 경우에 호출하여 편하게 사용할수 있다.
 
-## Conclusion
-* ### Summary
-  * ####
-    *
+## Refactoring Sigleton Usage un Singleton
+> 
+
 
 ## References
 * [싱글턴 패턴 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80%ED%84%B4_%ED%8C%A8%ED%84%B4)
