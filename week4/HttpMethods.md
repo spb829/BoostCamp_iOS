@@ -1,29 +1,35 @@
-# Http Methods
+## HTTP
 
-## Create
-### Post
-HTTP POST method 는 데이터(data)를 서버로 보내는 방법입니다. request 개체의 body는 Content-Type 헤더(header)에 따라서 양식을 맞추어 표현됩니다.
+* HTTP(HyperText Transfer Protocol)는 WWW 상에서 클라이언트와 서버 사이에 이루어지는 요청/응답(request/response) 프로토콜.
+* TCP와 UDP를 통하여 80번 포트를 사용.
 
+* ### Methods
 
-## Read
-### GET
+![groupWork/images/HTTP_Methods.png](groupWork/images/HTTP_Methods.png)
 
+  * HTTP Method - REST API
+    * POST - CREATE
+    * PUT - UPDATE
+    * GET - READ
+    * DELETE - DELETE
 
-## Update
-### PUT
+* ### HTTP Message
 
+  * ASCII로 인코딩된 텍스트 정보로 구성되며, 여러 줄에 걸쳐 만들어진다.
+  * HTTP/1.1과 프로토콜 초기 버전에서, 이 메시지들은 연결을 통해 직접 전달되었으나, HTTP/2에서는 최적화와 더 나은 성능을 이끌어내도록 인간이 읽을 수 있는 메시지가  HTTP 프레임으로 나누어진다.
 
-## Delete
-### DELETE
-
+![groupWork/images/HTTPMsgStructure.png](groupWork/images/HTTPMsgStructure.png)
 
 ## REST
+
 ### REST란?
+
 - 소프트웨어 아키텍쳐의 형식이다.
 - 웹상의 자료를 HTTP 메소드를 사용하여 주고받기 편리하게 만든 인터페이스이다.
 - HTTP 메소드를 사용한다.
 
 ### REST의 기본
+
 - REST의 요소 3가지 (예시:  이름이 DaDa라는 사용자를 생성한다)
     - 리소스
         - 대상 (ex : 사용자)
@@ -66,7 +72,7 @@ HTTP POST , http://myweb/users/
 
 	- POST : Create	- Not Idempotent
 	- GET : Read 		- Idempotent
-	- PUT : Update	- Idempotent
+	- PUT : Update	    - Idempotent
 	- DELETE : Delete	- Idempotent
 
 	* Idempotent (멱등) : 여러번 수행해도 결과가 같은 경우
