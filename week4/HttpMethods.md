@@ -116,3 +116,52 @@ HTTP DELETE, http://myweb/users/terry
 	* Idempotent (멱등) : 여러번 수행해도 결과가 같은 경우
       - ex) a += 1 : Idempotent 하지 않음(a의 값이 수행함에 따라 계속 값이 올라가기 때문 )
       - ex) a = 1 : Idempotent (여러 번 수행해도 a는 1)
+
+
+----
+
+## Example - 독서공방
+
+### HTTP GET
+http://openapi.naver.com/v1/search/book_adv.json/d_title={query}
+
+Content-Type -> application/json; charset=UTF-8
+
+```json
+[
+	"books": [
+				{
+					"title": "adf",
+					"author": "dadong",
+					"publish_date": "2017-06-05"
+				},
+				{
+					"title": "abc",
+					"author": "kim",
+					"publish_date": "2016-07-07"
+				}
+			]
+]
+```
+
+### HTTP POST http://api.book.com/v1/book
+
+```json
+body
+{
+	"title": "adf",
+	"author": "dadong",
+	"publish_date": "2017-06-05"
+}
+```
+
+### HTTP PUT http://api.book.com/v1/book/1
+
+```json
+body
+{
+	"author": "kimdadong"
+}
+```
+
+### HTTP DELETE http://api.book.com/v1/book/1
