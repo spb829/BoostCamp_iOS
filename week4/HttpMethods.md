@@ -38,7 +38,7 @@ HTTP POST method 는 데이터(data)를 서버로 보내는 방법입니다. req
 HTTP POST , http://myweb/users/
 {  
    "users":{  
-      "name":"terry"
+      "name":"DaDa"
    }
 }
 ```
