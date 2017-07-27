@@ -8,3 +8,4 @@
 * [모둠과제 : Life Cycle Method](LifeCycleMethod.md)
 * [모둠 활동 문제내기 : 진행 중](groupAssignment.md)
 * [교육자료 만들기 : Singleton Pattern](SingletonPattern.md)
+* [모둠 활동 : HTTP Methods & CRUD](groupWork.md)
