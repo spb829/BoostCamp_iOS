@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CircularActionMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj2-RH-vbf">
+                                <rect key="frame" x="242.5" y="367" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hj2-RH-vbf" secondAttribute="height" multiplier="1:1" id="tKe-oM-7ne"/>
+                                </constraints>
+                                <state key="normal" image="NormalAlpaca"/>
+                                <state key="highlighted" image="HighlightedAlpaca"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWp-d6-mmR">
+                                <rect key="frame" x="82.5" y="367" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cWp-d6-mmR" secondAttribute="height" multiplier="1:1" id="sb6-L9-Zvs"/>
+                                </constraints>
+                                <state key="normal" image="NormalGiraff"/>
+                                <state key="highlighted" image="HighlightedGiraff"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avB-Ux-Qab">
+                                <rect key="frame" x="162.5" y="327" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="avB-Ux-Qab" secondAttribute="height" multiplier="1:1" id="aHE-mm-arK"/>
+                                </constraints>
+                                <state key="normal" image="NormalCPL"/>
+                                <state key="highlighted" image="HighlightedCPL"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9B-t4-wah">
+                                <rect key="frame" x="162.5" y="417" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E9B-t4-wah" secondAttribute="height" multiplier="1:1" id="pOD-e1-eFM"/>
+                                </constraints>
+                                <state key="normal" image="NormalMenu"/>
+                                <state key="highlighted" image="HighlightedMenu"/>
+                                <connections>
+                                    <action selector="touchOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="f3f-lx-0ni"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="leading" secondItem="cWp-d6-mmR" secondAttribute="trailing" constant="30" id="JSB-Zi-xe0"/>
+                            <constraint firstItem="avB-Ux-Qab" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oyv-WF-LbM"/>
+                            <constraint firstItem="hj2-RH-vbf" firstAttribute="leading" secondItem="E9B-t4-wah" secondAttribute="trailing" constant="30" id="c13-MC-7di"/>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="top" secondItem="hj2-RH-vbf" secondAttribute="bottom" id="cel-XA-cQj"/>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" multiplier="0.7" id="iWE-iR-Ope"/>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jt5-L1-SOI"/>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="top" secondItem="cWp-d6-mmR" secondAttribute="bottom" id="y0r-Ql-aNq"/>
+                            <constraint firstItem="E9B-t4-wah" firstAttribute="top" secondItem="avB-Ux-Qab" secondAttribute="bottom" constant="40" id="zlx-mr-uXd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="arrowButton" destination="avB-Ux-Qab" id="nEL-bU-FMK"/>
+                        <outlet property="giraffButton" destination="cWp-d6-mmR" id="luw-l3-6EP"/>
+                        <outlet property="menuButton" destination="E9B-t4-wah" id="Wy1-02-jjn"/>
+                        <outlet property="rabbitButton" destination="hj2-RH-vbf" id="pzD-nW-2yn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="HighlightedAlpaca" width="50" height="50"/>
+        <image name="HighlightedCPL" width="50" height="50"/>
+        <image name="HighlightedGiraff" width="50" height="50"/>
+        <image name="HighlightedMenu" width="50" height="50"/>
+        <image name="NormalAlpaca" width="50" height="50"/>
+        <image name="NormalCPL" width="50" height="50"/>
+        <image name="NormalGiraff" width="50" height="50"/>
+        <image name="NormalMenu" width="50" height="50"/>
+    </resources>
+</document>
