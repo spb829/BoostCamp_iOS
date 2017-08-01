@@ -10,7 +10,7 @@
 
 > 의존성 관리 툴은 우리가 사용하는 모듈을 일괄 관리 해주는 역할을 한다.
 
-![swift](images/Swift.png)
+![swift](Images/Swift.png)
 
 * ### Dependency Manager In Swift
 
@@ -25,7 +25,7 @@
 ## Discussion
 
 * ### Carthage
-> Carthage(카르테지)는 Swift언어기반의 라이브러리 관리도구이다. 
+> Carthage(카르테지)는 Swift언어기반의 라이브러리 관리도구이다.
 >
 > 코코아 라이브러리 관리도구로 유명한 CocoaPods는 자동으로 작업공간을 생성하고 업데이트하는등의 다양한 기능이 있지만, Carthage는 심플하고 유연하고 불편한 것들을 없앤 도구이다.
 
@@ -35,10 +35,10 @@
     * 단순하다 (Carthage 다운로드를 하면 바로 사용가능하다.)
 
   * Why Carthage?
-    * 컴파일시간이 짧아지기 때문이다. 
+    * 컴파일시간이 짧아지기 때문이다.
       > 이유는 Carthage라이브러리를 설치하면 해당 라이브러리를 미리 빌드하고 프레임웍을 만들어주기 때문에 CocoaPods에 비해 컴파일 시간을 단축시킬 수 있다.
 
-![Carthage](images/Carthage.png)
+![Carthage](Images/Carthage.png)
 
   * Summary
     > Carthage는 dynamic framework를 만드는 것으로 iOS8이상 대응이고 그 이하는 도입하기 어렵다. 그런 이유로 iOS앱 개발시 지원운영체제 버전을 iOS8이하버전도 고려한다면 Carthage는 사용할 수 없다.
@@ -80,7 +80,7 @@
         pod 'Alamofire'
       end
       ```
-    
+
     * Install libraries
       ```shell
       pod install
@@ -98,7 +98,7 @@
 
 ![SwiftPackageManager](Images/SwiftPackageManager.png)
 
-  * Insatll
+  * Install
     * Swift Snapshots에서 Swift Dev. Snapshot 설치
     * Dev Snapshot 설치
         * /Library/Developer/Toolchains 아래 /usr/bin/ 폴더에서
