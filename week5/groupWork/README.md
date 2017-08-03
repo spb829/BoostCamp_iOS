@@ -68,6 +68,35 @@
   * ### Swift의 특징을 살릴 수 있는 프로그래밍 방법은?
 
 * ### POP (Protocol Oriented Programing)
+  * 불변
+C++ :
+```C++
+class Puter {
+void compute(obj *ptr);
+void compute(const Obj *ptr);
+void compute(Obj * const ptr);
+void compute(const Obj * const ptr);
+void compute(const Obj * const ptr) const;
+};
+
+Swift : 
+var dateString = formatter.stringFromDate(date)
+// vs
+let dateString = formatter.stringFromDate(date)
+```
+
+```
+var dateString = formatter.stringFromDate(date)
+// vs
+let dateString = formatter.stringFromDate(date)
+```
+
+* 옵셔널 : 타입 세이프한 언어이다.컴파일시에 nil 체크를 수행함으로써 잠재적인 에러를 탐지할 수 있다.
+
+* 문자열 :  "+="를 사용하여 문자열을 쉽게 연결하고, "isEqualToString :" 대신 "=="을 사용하여 문자열을 비교할 수 있다.
+
+* generic : 제네릭을 제공한다.
+
 
 * OOP의 장점
     * 캡슐화 : 속성과 속성을 제어하는 행위를 모아 은닉할 수 있다.
