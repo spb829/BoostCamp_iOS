@@ -4,7 +4,8 @@
 
 ## 제출
 * [모둠과제 : 의존성 관리도구](DepencencyManager.md)
-* [모둠 활동 문제내기 : 진행 중](groupAssignment.md)
-* [교육자료 만들기 : Sth](sth.md)
+* [모둠활동 : Swift](groupWork)
+* [모둠 활동 문제내기 : CoreData를 사용한 연락처 앱](GroupAssignment)
+* [교육자료 만들기 : SingletonPattern](SingletonPattern.md)
 
 
