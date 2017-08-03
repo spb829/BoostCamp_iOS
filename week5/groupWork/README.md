@@ -45,26 +45,41 @@
   * 객체 지향을 적극적으로 사용하며 저수준 작업들을 자동으로 처리해 주는 고수준 언어이고, 심지어 다른 고수준 언어들에 비해 빠른 편이다.
   * 바이트 코드인 클래스 파일을 생성하고, 이 파일을 일종의 에뮬레이터인 Java 가상 머신(JVM)이 해석하여 실행한다.
   * 태생적으로 타고난 장점으로 플랫폼에 독립적인 언어지만 동시에 메모리 관리에 타고난 약점을 가지게 되었다.
-  
 
 
 ## Discussion
 
-* ### 기존의 언어에 없던 기능/문법
+* ### Topic
 
-  * 2
+  * #### 기존의 언어에 없던 기능/문법
 
-* ### 기존의 언어에서 불편했던 점이 어떻게 해결되었을까?
+  * #### 기존의 언어에서 불편했던 점이 어떻게 해결되었을까?
 
-  * 
+  * ### Swift의 특징을 살릴 수 있는 프로그래밍 방법은?
 
-* ### 추가적인 차이점1?
+* ### POP (Protocol Oriented Programing)
 
-  * 
+* OOP의 장점
+    * 캡슐화 : 속성과 속성을 제어하는 행위를 모아 은닉할 수 있다.
+    * 접근제어 : private, protected, public키워드를 이용해 접근을 제어할 수 있다.
+    * 추상화 : 객체의 공통 속성과 행위를 추출할 수 있다.
+    * 다형성 : 하나의 형태를 사용하여 객체를 여러 타입으로 사용할 수 있다.
+    * 상속 : 상위 클래서의 속성과 행위를 그대로 물려받을 수 있다.
 
-* ### Swift의 특징을 살릴 수 있는 프로그래밍 방법
+* OOP의 단점
+    * 암시적 공유 : 의도하지 않았는데, 상속했다는 이유로 모든 속성과 행위를 공유한다.
+    * 단일체 : 단 하나의 부모만 존재한다. 추가적인 기능 구현으로 클래스의 덩치가 무한대로 커질 수 있다.
+    * 클래스 타입 관계 문제 : 복잡한 상속 구조를 지닌 클래스 참조 또는 연산을 수행할 때 임의 클래스의 올바른 타입을 얻기 위해 down-cast 해야 한다.
 
-  * 
+* Mixin Pattern
+    * Mixin 패턴은 상속이 아닌 포함의 구조를 가진다.
+    * Mixin 패턴의 장점은 복잡한 상속 구조의 애매함을 피할 수 있으며 행위를 분리함으로써 명확하고 다양한 인터페이스를 사용할 수 있다.
+
+* Swift에서 제공하는 POP
+    * Protocol extension
+    * Swift는 기능을 분리하여 Protocol extension 을 생성한다.
+    * Protocol extension 간에 연관성이 없기 때문에 암시적 공유가 발생하지 않는다.
+    * Protocol은 Value Type이기 때문에 연산을 할 때 down-cast가 필요하지 않다.
 
 ## References
 
@@ -72,3 +87,4 @@
 * [COMPARISON OF MODERN C++ AND APPLE’S SWIFT PROGRAMMING LANGUAGE SYNTAX](https://blog.michaelckennedy.net/2014/12/08/comparison-of-modern-c-and-apples-swift-programming-language-syntax/)
 * [BenchmarkInMultipleLanguages](https://github.com/spb829/BenchmarkInMultipleLanguages)
 * [Java vs Swift detailed comparison as of 2017 - Slant](https://www.slant.co/versus/112/6521/~java_vs_swift)
+* [10 things you should know about Apple's Swift](http://www.javaworld.com/article/2456964/java-ios-developer/10-things-you-should-know-about-apples-swift.html)
