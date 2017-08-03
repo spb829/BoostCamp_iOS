@@ -66,7 +66,35 @@
 
 * ### 기존의 언어에서 불편했던 점이 어떻게 해결되었을까?
 
-  * 
+  * 불변
+C++ :
+```C++
+class Puter {
+void compute(obj *ptr);
+void compute(const Obj *ptr);
+void compute(Obj * const ptr);
+void compute(const Obj * const ptr);
+void compute(const Obj * const ptr) const;
+};
+
+Swift : 
+var dateString = formatter.stringFromDate(date)
+// vs
+let dateString = formatter.stringFromDate(date)
+```
+
+```
+var dateString = formatter.stringFromDate(date)
+// vs
+let dateString = formatter.stringFromDate(date)
+```
+
+* 옵셔널 : 타입 세이프한 언어이다.컴파일시에 nil 체크를 수행함으로써 잠재적인 에러를 탐지할 수 있다.
+
+* 문자열 :  "+="를 사용하여 문자열을 쉽게 연결하고, "isEqualToString :" 대신 "=="을 사용하여 문자열을 비교할 수 있다.
+
+* generic : 제네릭을 제공한다.
+
 
 * ### 추가적인 차이점1?
 
