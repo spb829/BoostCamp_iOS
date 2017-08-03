@@ -78,14 +78,10 @@ void compute(Obj * const ptr);
 void compute(const Obj * const ptr);
 void compute(const Obj * const ptr) const;
 };
-
-Swift : 
-var dateString = formatter.stringFromDate(date)
-// vs
-let dateString = formatter.stringFromDate(date)
 ```
 
-```
+
+```swift
 var dateString = formatter.stringFromDate(date)
 // vs
 let dateString = formatter.stringFromDate(date)
